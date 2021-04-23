@@ -32,6 +32,14 @@
           <Property Name="Address" Type="varchar" MaxLength="50" />
           <Property Name="Location" Type="varchar" MaxLength="200" />
         </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Contacts">
           <Key>
             <PropertyRef Name="Id" />
@@ -53,6 +61,7 @@
           <EntitySet Name="Abilities" EntityType="Self.Abilities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Abouts" EntityType="Self.Abouts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Works" EntityType="Self.Works" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -110,7 +119,16 @@
           <EntitySet Name="Addresses" EntityType="Self.Addresses" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" />
           <EntitySet Name="Works" EntityType="Self.Works" />
+          <EntitySet Name="Admins" EntityType="DbCvEntityModel.Admins" />
         </EntityContainer>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -163,6 +181,15 @@
               <MappingFragment StoreEntitySet="Works">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="DbCvEntityModel.Admins">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

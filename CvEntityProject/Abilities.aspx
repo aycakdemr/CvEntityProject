@@ -18,8 +18,18 @@
                 <tr>
                     <td><%#Eval("Id") %></td>
                     <td><%#Eval("Ability") %></td>
-                    <td><a href="#" class="btn btn-danger">Sil</a></td>
-                    <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                    <td><asp:HyperLink runat="server" NavigateUrl='<%# "DeleteAbility.Aspx?Id="+ Eval("Id") %>'
+                        CssClass="btn btn-danger">Sil</asp:HyperLink> 
+
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink1" 
+                            runat="server"
+                            NavigateUrl='<%# "UpdateAbility.Aspx?Id="+Eval("Id") %>' 
+                            CssClass="btn btn-success">
+                            Güncelle</asp:HyperLink>
+
+                    </td>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>

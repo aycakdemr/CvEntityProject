@@ -10,7 +10,7 @@
 
 namespace CvEntityProject
 {
-    public partial class Experiences
+    public partial class DeleteAbility
     {
     }
 }
